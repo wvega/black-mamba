@@ -14,3 +14,4 @@ Install the Requirements mentioned in https://facebook.github.io/react-native/do
 ## Helpful Links
 
 * https://github.com/jondot/awesome-react-native
+* [Directory Structure for a React-Native application](https://gist.github.com/jnhuynh/86693d8b485f4d335300)
