@@ -11,7 +11,7 @@ var styles = StyleSheet.create({
   detailsContainer: {
     backgroundColor: '#004693',
     padding: 10,
-    paddingTop: 55,
+    paddingTop: 65,
   },
   nameContainer: {
     marginBottom: 15,
