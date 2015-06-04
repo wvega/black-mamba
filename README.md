@@ -15,3 +15,4 @@ Install the Requirements mentioned in https://facebook.github.io/react-native/do
 
 * [The Project Wiki](https://github.com/wvega/black-mamba/wiki)
 * https://github.com/jondot/awesome-react-native
+* [Directory Structure for a React-Native application](https://gist.github.com/jnhuynh/86693d8b485f4d335300)
