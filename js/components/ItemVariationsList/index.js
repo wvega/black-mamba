@@ -1,5 +1,7 @@
 var React = require('react-native');
 
+var ItemVariationDetails = require('../ItemVariationDetails');
+
 var {
   ListView,
   TouchableHighlight,
@@ -64,6 +66,22 @@ var ItemVariationsList = React.createClass({
     this.setState({dataSource: this.state.dataSource.cloneWithRows(
       this._genRows(this._pressData)
     )});
+
+    this.props.navigator.push({
+      title: 'Item Variation Details',
+      component: ItemVariationDetails,
+      passProps: {
+        itemVariation: {
+          name: 'Suavitel Fast Dry',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dictum fermentum lorem vitae pharetra. Nam sollicitudin, massa finibus tincidunt rhoncus, elit nunc cursus lorem, a blandit nulla felis vel magna.',
+          presentationAmount: 1000,
+          presentationUnit: 'ml',
+          brand: {
+            name: 'Suavitel'
+          }
+        }
+      }
+    });
   },
 });
 
