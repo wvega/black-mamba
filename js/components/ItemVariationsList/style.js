@@ -17,6 +17,9 @@ var styles = StyleSheet.create({
   wrapper: {
     flex: 1,
   },
+  container: {
+    flex: 1,
+  }
 });
 
 module.exports = styles;
