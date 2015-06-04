@@ -2,14 +2,14 @@ var React = require('react-native');
 
 var ItemVariationDetails = require('../ItemVariationDetails');
 
+var styles = require('./style.js');
+
 var {
   ListView,
   TouchableHighlight,
   Text,
   View
 } = React;
-
-var styles = require('./style.js');
 
 var ItemVariationsList = React.createClass({
   getInitialState: function() {
