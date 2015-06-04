@@ -9,9 +9,7 @@ var {
 
 var styles = require('./style.js');
 
-var ItemVariationsList = require('../ItemVariationsList');
-
-var ItemsList = React.createClass({
+var ItemVariationsList = React.createClass({
   getInitialState: function() {
     var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     return {
@@ -54,7 +52,7 @@ var ItemsList = React.createClass({
 
   _genRows: function(pressData: {[key: number]: boolean}): Array<string> {
     var dataBlob = [];
-    for (var ii = 0; ii < 100; ii++) {
+    for (var ii = 0; ii < 10; ii++) {
       var pressedText = pressData[ii] ? ' (pressed)' : '';
       dataBlob.push('Row ' + ii + pressedText);
     }
@@ -66,13 +64,7 @@ var ItemsList = React.createClass({
     this.setState({dataSource: this.state.dataSource.cloneWithRows(
       this._genRows(this._pressData)
     )});
-    
-    this.props.navigator.push({
-      title: 'Results',
-      component: ItemVariationsList,
-      passProps: {listings: "Lorem"}
-    });
   },
 });
 
-module.exports = ItemsList;
+module.exports = ItemVariationsList;
