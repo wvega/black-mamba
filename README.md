@@ -1,5 +1,7 @@
 # Black Mamba
 
+[![Join the chat at https://gitter.im/wvega/black-mamba](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/wvega/black-mamba?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ## Requirements
 
 Install the Requirements mentioned in https://facebook.github.io/react-native/docs/getting-started.html.
