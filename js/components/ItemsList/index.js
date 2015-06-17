@@ -1,4 +1,10 @@
 var React = require('react-native');
+var Parse = require('parse').Parse;
+var ParseReact = require('parse-react');
+
+var styles = require('./style.js');
+
+var ItemVariationsList = require('../ItemVariationsList');
 
 var {
   ListView,
@@ -7,15 +13,19 @@ var {
   View
 } = React;
 
-var styles = require('./style.js');
-
-var ItemVariationsList = require('../ItemVariationsList');
-
 var ItemsList = React.createClass({
+  mixins: [ParseReact.Mixin],
+
+  observe: function() {
+    return {
+      items: (new Parse.Query('Item')).ascending('createdAt')
+    };
+  },
+
   getInitialState: function() {
     var ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     return {
-      dataSource: ds.cloneWithRows(this._genRows({})),
+      dataSource: ds.cloneWithRows([]),
     };
   },
 
@@ -26,17 +36,24 @@ var ItemsList = React.createClass({
   },
 
   render: function() {
+    if (this.data.items.length > 0) {
+      content = (<ListView dataSource={this._fillData()} renderRow={this._renderRow} />);
+    } else {
+      content = (<View><Text>There are no items to show</Text></View>);
+    }
+    
     return (
       <View style={styles.container}>
         <View
           style={styles.wrapper}>
-            <ListView
-              dataSource={this.state.dataSource}
-              renderRow={this._renderRow}
-            />
+            {content}
         </View>
       </View>
     );
+  },
+
+  _fillData: function () {
+    return this.state.dataSource.cloneWithRows(this.data.items);
   },
 
   _renderRow: function(rowData: string, sectionID: number, rowID: number) {
@@ -44,7 +61,7 @@ var ItemsList = React.createClass({
       <TouchableHighlight onPress={() => this._pressRow(rowID)}>
         <View>
           <View style={styles.row}>
-            <Text>{rowData}</Text>
+            <Text>{rowData.name}</Text>
           </View>
           <View style={styles.separator} />
         </View>
@@ -52,25 +69,11 @@ var ItemsList = React.createClass({
     );
   },
 
-  _genRows: function(pressData: {[key: number]: boolean}): Array<string> {
-    var dataBlob = [];
-    for (var ii = 0; ii < 100; ii++) {
-      var pressedText = pressData[ii] ? ' (pressed)' : '';
-      dataBlob.push('Row ' + ii + pressedText);
-    }
-    return dataBlob;
-  },
-
   _pressRow: function(rowID: number) {
-    this._pressData[rowID] = !this._pressData[rowID];
-    this.setState({dataSource: this.state.dataSource.cloneWithRows(
-      this._genRows(this._pressData)
-    )});
-    
     this.props.navigator.push({
-      title: 'Results',
+      title: this.data.items[rowID].name,
       component: ItemVariationsList,
-      passProps: {listings: "Lorem"}
+      passProps: {item: this.data.items[rowID]}
     });
   },
 });

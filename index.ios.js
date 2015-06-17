@@ -1,6 +1,10 @@
 'use strict';
 
 var React = require('react-native');
+var Parse = require('parse').Parse;
+var ParseReact = require('parse-react');
+
+Parse.initialize("nAqIWClmCWmXOccMIpVRV13mYNOiGsP3WUStwdOx", "w5YV7MLVGDoMJVeNYq996NArz0g2cwyqTPNIAcSu");
 
 var ItemsList = require('./js/components/ItemsList');
 
@@ -23,7 +27,7 @@ var BlackMamba = React.createClass({
       <NavigatorIOS style={styles.container}
         initialRoute={{
           component: ItemsList,
-          title: 'BlackMamba',
+          title: 'BM',
           rightButtonTitle: 'Add',
           passPros: {onRowClick: this._onRowClick}
         }}
