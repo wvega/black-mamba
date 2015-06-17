@@ -80,7 +80,7 @@ var ItemVariationsList = React.createClass({
     this.props.navigator.push({
       title: this.data.items[rowID].name,
       component: ItemVariationDetails,
-      passProps: {item: this.data.items[rowID]}
+      passProps: {itemVariation: this.data.items[rowID]}
     });
   },
 });
