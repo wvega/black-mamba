@@ -11,7 +11,7 @@ var styles = StyleSheet.create({
   detailsContainer: {
     backgroundColor: '#004693',
     padding: 10,
-    paddingTop: 65,
+    paddingTop: 75,
   },
   nameContainer: {
     marginBottom: 15,
@@ -34,7 +34,6 @@ var styles = StyleSheet.create({
     textAlign: 'right',
   },
   purchasesListContainer: {
-    backgroundColor: 'red',
     flex: 1,
   }
 });

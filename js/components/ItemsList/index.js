@@ -56,7 +56,7 @@ var ItemsList = React.createClass({
     return this.state.dataSource.cloneWithRows(this.data.items);
   },
 
-  _renderRow: function(rowData: string, sectionID: number, rowID: number) {
+  _renderRow: function(rowData: object, sectionID: number, rowID: number) {
     return (
       <TouchableHighlight onPress={() => this._pressRow(rowID)}>
         <View>

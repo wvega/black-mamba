@@ -62,7 +62,7 @@ var ItemVariationsList = React.createClass({
     return this.state.dataSource.cloneWithRows(this.data.items);
   },
 
-  _renderRow: function(rowData: string, sectionID: number, rowID: number) {
+  _renderRow: function(rowData: object, sectionID: number, rowID: number) {
     return (
       <TouchableHighlight onPress={() => this._pressRow(rowID)}>
         <View>
@@ -80,7 +80,7 @@ var ItemVariationsList = React.createClass({
     this.props.navigator.push({
       title: this.data.items[rowID].name,
       component: ItemVariationDetails,
-      passProps: {item: this.data.items[rowID]}
+      passProps: {itemVariation: this.data.items[rowID]}
     });
   },
 });
