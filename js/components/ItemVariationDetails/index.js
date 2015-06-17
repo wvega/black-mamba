@@ -1,66 +1,18 @@
 var React = require('react-native');
 
+var ItemVariationPurchasesList = require('../ItemVariationPurchasesList');
+
 var styles = require('./style.js');
 
 var {
   AppRegistry,
   Text,
-  View,
-  ListView,
+  View
 } = React;
 
 var ItemVariationDetails = React.createClass({
   propTypes: {
     itemVariation: React.PropTypes.object.isRequired,
-  },
-
-  getInitialState: function () {
-      var dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-
-      return {
-          dataSource: dataSource.cloneWithRows([
-            {
-              name: 'Mercados Madrid',
-              price: 6500,
-              date: new Date(2015, 5, 16, 16, 34, 12),
-            },
-            {
-              name: 'De1 (San Juan)',
-              price: 6800,
-              date: new Date(2015, 10, 16, 16, 34, 12),
-            },
-            {
-              name: 'De1 (San Juan)',
-              price: 6800,
-              date: new Date(2015, 10, 16, 16, 34, 12),
-            },
-            {
-              name: 'De1 (San Juan)',
-              price: 6800,
-              date: new Date(2015, 10, 16, 16, 34, 12),
-            },
-            {
-              name: 'De1 (San Juan)',
-              price: 6800,
-              date: new Date(2015, 10, 16, 16, 34, 12),
-            },
-            {
-              name: 'De1 (San Juan)',
-              price: 6800,
-              date: new Date(2015, 10, 16, 16, 34, 12),
-            },
-            {
-              name: 'De1 (San Juan)',
-              price: 6800,
-              date: new Date(2015, 10, 16, 16, 34, 12),
-            },
-            {
-              name: 'De1 (San Juan)',
-              price: 6800,
-              date: new Date(2015, 10, 16, 16, 34, 12),
-            }
-          ])
-      };
   },
 
   render () {
@@ -75,16 +27,7 @@ var ItemVariationDetails = React.createClass({
           <Text style={styles.presentation}>{this.props.itemVariation.presentationAmount} {this.props.itemVariation.presentationUnit}</Text>
         </View>
         <View style={styles.purchasesListContainer}>
-          <ListView
-            automaticallyAdjustContentInsets={false}
-            dataSource={this.state.dataSource}
-            renderRow={(row) =>
-              <View>
-                <View>
-                  <Text>{row.name}</Text><Text>{row.price}</Text>
-                </View>
-                <Text>{row.date}</Text>
-              </View>} />
+          <ItemVariationPurchasesList {...this.props} />
         </View>
       </View>
     );
