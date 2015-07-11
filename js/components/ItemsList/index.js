@@ -2,6 +2,7 @@ var React = require('react-native');
 var Parse = require('parse').Parse;
 var ParseReact = require('parse-react');
 
+var commonStyles = require('../../common-style.js');
 var styles = require('./style.js');
 
 var ItemVariationsList = require('../ItemVariationsList');
@@ -60,10 +61,10 @@ var ItemsList = React.createClass({
     return (
       <TouchableHighlight onPress={() => this._pressRow(rowID)}>
         <View>
-          <View style={styles.row}>
-            <Text>{rowData.name}</Text>
+          <View style={[commonStyles.row, styles.row]}>
+            <Text style={styles.itemName}>{rowData.name}</Text>
           </View>
-          <View style={styles.separator} />
+          <View style={commonStyles.separator} />
         </View>
       </TouchableHighlight>
     );

@@ -5,20 +5,20 @@ var {
 } = React;
 
 var styles = StyleSheet.create({
-  row: {
-    flexDirection: 'row',
-    padding: 10,
-    backgroundColor: '#F6F6F6',
-  },
-  separator: {
-    height: 1,
-    backgroundColor: '#CCCCCC',
+  container: {
+    flex: 1,
   },
   wrapper: {
     flex: 1,
   },
-  container: {
+  row: {
+    paddingHorizontal: 10
+  },
+  itemName: {
     flex: 1,
+    fontFamily: 'Helvetica',
+    fontSize: 18,
+    lineHeight: 18,
   }
 });
 
