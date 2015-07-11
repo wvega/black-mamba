@@ -2,6 +2,7 @@ var React = require('react-native');
 var Parse = require('parse').Parse;
 var ParseReact = require('parse-react');
 
+var commonStyles = require('../../common-style.js');
 var styles = require('./style.js');
 
 var ItemVariationDetails = require('../ItemVariationDetails');
@@ -22,7 +23,7 @@ var ItemVariationsList = React.createClass({
   observe: function (props, state) {
     var itemObject = new Item();
     itemObject.id = props.item.objectId;
-    
+
     return {
       items: (new Parse.Query('ItemVariation')).equalTo('item', itemObject).include('brand')
     }
@@ -66,11 +67,15 @@ var ItemVariationsList = React.createClass({
     return (
       <TouchableHighlight onPress={() => this._pressRow(rowID)}>
         <View>
-          <View style={styles.row}>
-            <Text>{rowData.name}</Text>
-            <Text>{rowData.brand.name}</Text>
+          <View style={[commonStyles.row, styles.row]}>
+            <View style={styles.itemVariationNameContainer}>
+              <Text style={styles.itemVariationName}>{rowData.name}</Text>
+            </View>
+            <View style={styles.itemVariationBrandNameContainer}>
+              <Text style={styles.itemVariationBrandName}>{rowData.brand.name}</Text>
+            </View>
           </View>
-          <View style={styles.separator} />
+          <View style={commonStyles.separator} />
         </View>
       </TouchableHighlight>
     );

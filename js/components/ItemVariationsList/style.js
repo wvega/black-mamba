@@ -5,20 +5,36 @@ var {
 } = React;
 
 var styles = StyleSheet.create({
-  row: {
-    flexDirection: 'row',
-    padding: 10,
-    backgroundColor: '#F6F6F6',
-  },
-  separator: {
-    height: 1,
-    backgroundColor: '#CCCCCC',
+  container: {
+    flex: 1,
   },
   wrapper: {
     flex: 1,
   },
-  container: {
+  row: {
+    flexDirection: 'row',
+    padding: 10,
+  },
+  itemVariationNameContainer: {
+    flex: 2,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+  },
+  itemVariationName: {
     flex: 1,
+    fontSize: 16,
+    lineHeight: 16,
+  },
+  itemVariationBrandNameContainer: {
+    alignItems: 'flex-end',
+    flex: 1,
+    flexDirection: 'column',
+  },
+  itemVariationBrandName: {
+    color: 'gray',
+    flex: 1,
+    fontSize: 16,
+    lineHeight: 16,
   }
 });
 
