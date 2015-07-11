@@ -3,6 +3,8 @@ var Parse = require('parse').Parse;
 var ParseReact = require('parse-react');
 var moment = require('moment')
 
+var EmptyList = require('../EmptyList');
+
 var styles = require('./style.js');
 
 var {
@@ -47,7 +49,7 @@ var ItemVariationPurchasesList = React.createClass({
           renderRow={this._renderRow} />
       );
     } else {
-      content = (<View><Text>Whaaat?</Text></View>);
+      content = (<EmptyList content="There is no information to show."/>);
     }
 
     return content;
