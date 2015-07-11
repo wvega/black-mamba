@@ -9,7 +9,8 @@ var styles = StyleSheet.create({
     flex: 1,
   },
   detailsContainer: {
-    backgroundColor: '#004693',
+    backgroundColor: '#137DE5',
+    backgroundColor: '#3FB062',
     padding: 10,
     paddingTop: 75,
   },
